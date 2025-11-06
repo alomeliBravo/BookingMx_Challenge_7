@@ -15,3 +15,4 @@ npm i
 npm run serve
 # http://localhost:5173
 ```
+# BookingMx
