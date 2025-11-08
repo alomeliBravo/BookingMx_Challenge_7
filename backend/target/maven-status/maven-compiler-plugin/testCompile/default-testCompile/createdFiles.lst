@@ -1,0 +1,6 @@
+com\bookingmx\reservations\steps\ApiExceptionHandlerTest.class
+com\bookingmx\reservations\CucumberTestRunner.class
+com\bookingmx\reservations\steps\CommonSteps.class
+com\bookingmx\reservations\steps\ReservationTest.class
+com\bookingmx\reservations\steps\CucumberSpringContextConfig.class
+com\bookingmx\reservations\steps\ApiIntegrationSteps.class

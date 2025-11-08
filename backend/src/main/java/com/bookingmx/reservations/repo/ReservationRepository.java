@@ -22,8 +22,4 @@ public class ReservationRepository {
         store.put(r.getId(), r);
         return r;
     }
-
-    public void delete(Long id) {
-        store.remove(id);
-    }
 }

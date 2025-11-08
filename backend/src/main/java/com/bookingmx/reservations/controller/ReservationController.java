@@ -29,6 +29,11 @@ public class ReservationController {
                 .toList();
     }
 
+    @GetMapping("/{id}")
+    public ReservationResponse get(@PathVariable("id") Long id) {
+        return toResponse(service.findById(id));
+    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ReservationResponse create(@Valid @RequestBody ReservationRequest req) {
         return toResponse(service.create(req));

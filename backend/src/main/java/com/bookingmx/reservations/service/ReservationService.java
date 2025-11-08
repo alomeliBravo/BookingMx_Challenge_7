@@ -26,6 +26,11 @@ public class ReservationService {
         return repo.save(r);
     }
 
+    public Reservation findById(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Reservation not found"));
+    }
+
     public Reservation update(Long id, ReservationRequest req) {
         Reservation existing = repo.findById(id).orElseThrow(() -> new NotFoundException("Reservation not found"));
         if (!existing.isActive()) throw new BadRequestException("Cannot update a canceled reservation");
@@ -43,10 +48,9 @@ public class ReservationService {
         return repo.save(existing);
     }
 
-    private void validateDates(LocalDate in, LocalDate out) {
+    public void validateDates(LocalDate in, LocalDate out) {
         if (in == null || out == null) throw new BadRequestException("Dates cannot be null");
         if (!out.isAfter(in)) throw new BadRequestException("Check-out must be after check-in");
         if (in.isBefore(LocalDate.now())) throw new BadRequestException("Check-in must be in the future");
-        if (out.isBefore(LocalDate.now())) throw new BadRequestException("Check-out must be in the future");
     }
 }

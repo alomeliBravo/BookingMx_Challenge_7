@@ -11,8 +11,6 @@ public class Reservation {
     private LocalDate checkOut;
     private ReservationStatus status = ReservationStatus.ACTIVE;
 
-    public Reservation() {}
-
     public Reservation(Long id, String guestName, String hotelName, LocalDate checkIn, LocalDate checkOut) {
         this.id = id;
         this.guestName = guestName;
